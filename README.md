@@ -1,8 +1,8 @@
 # zsh-rime
 
-![IME](https://github.com/Freed-Wu/zsh-rime/assets/32936898/4b569c55-97e3-4a73-99c3-a8daaeaa6a7d)
+![IME](https://github.com/rimeinn/zsh-rime/assets/32936898/4b569c55-97e3-4a73-99c3-a8daaeaa6a7d)
 
-![complete](https://github.com/Freed-Wu/zsh-rime/assets/32936898/589d588c-05c0-4ae0-8708-9791d4221d0a)
+![complete](https://github.com/rimeinn/zsh-rime/assets/32936898/589d588c-05c0-4ae0-8708-9791d4221d0a)
 
 A video can be found [here](https://asciinema.org/a/660633).
 
@@ -40,7 +40,7 @@ zinit id-as depth'1' wait lucid \
 bindkey "^[^N" rime-next-schema
 bindkey "^[^P" rime-previous-schema
 bindkey "^^" rime-ime' \
-  for Freed-Wu/zsh-rime
+  for rimeinn/zsh-rime
 ```
 
 ### Manual
