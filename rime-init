@@ -1,14 +1,14 @@
 local dir shared_data_dir user_data_dir log_dir distribution_name distribution_code_name distribution_version app_name
 local -i min_log_level
 zstyle -a ':rime:traits' shared-data-dir shared_data_dir ||
-  for dir in {${PREIFX:-${SHELL%/*/*}}{,/usr}/share,/run/current-system/sw/share,/sdcard}/rime-data; do
-    [[ -d $dir ]] &&
-      shared_data_dir=$dir
+  for dir in ${(s/:/)XDG_DATA_DIRS} ${PREIFX:-/sdcard}; do
+    [[ ! -d $dir/rime-data ]] ||
+      shared_data_dir=$dir/rime-data
   done
 zstyle -a ':rime:traits' user-data-dir user_data_dir ||
-  for dir in $HOME/.config/ibus/rime $HOME/.local/share/fcitx5/rime $HOME/.config/fcitx/rime /sdcard/rime; do
-    [[ -d $dir ]] &&
-      user_data_dir=$dir
+  for dir in ${XDG_CONFIG_HOME:-$HOME/.config}/{ibus,fcitx} ${XDG_DATA_HOME:-$HOME/.local/share}/fcitx5 /sdcard; do
+    [[ ! -d $dir/rime ]] ||
+      user_data_dir=$dir/rime
   done
 zstyle -s ':rime:traits' log-dir log_dir ||
   log_dir=${TMPPREFIX:-/tmp/zsh}/rime
