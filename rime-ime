@@ -119,6 +119,8 @@ unfunction self-insert draw-ui
 
 (( stat )) && zle send-break
 
+rime getCurrentSchema $rime_session_id
+
 return $stat
 
 # ex: filetype=zsh
