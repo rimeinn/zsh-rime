@@ -29,7 +29,7 @@ zstyle -a ':rime:keys' special special ||
 
 draw-ui() {
   rime getContext $1 context_composition context_menu context_menu_candidates_text context_menu_candidates_comment
-  if (( $#context_menu_candidates_text == 0 )) && rime commitComposition $1; then
+  if (( $#context_menu_candidates_text == 0 )) && (( ${#context_composition[preedit]} == 0 )) && rime commitComposition $1; then
     rime getCommit $1 commit
     LBUFFER+=$commit[text]
   fi
